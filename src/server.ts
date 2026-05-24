@@ -1,5 +1,11 @@
 import app from "./app";
+import config from "./config";
+import { initDB } from "./db";
 
-app.listen(() => {
-  console.log(`server running on port 5000`);
+const PORT = config.port;
+
+initDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`);
+  });
 });

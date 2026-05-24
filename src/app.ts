@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRouter from "./modules/auth/auth.routes";
 import issuesRouter from "./modules/issues/issues.routes";
 import errorHandler from "./middleware/error.middleware";
+import { initDB } from "./db";
 
 dotenv.config();
 
@@ -21,5 +22,8 @@ app.use((req, res) => {
 });
 
 app.use(errorHandler);
+
+// init db when app loads
+initDB();
 
 export default app;

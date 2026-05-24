@@ -1,5 +1,6 @@
 import express from "express";
 import authRouter from "./modules/auth/auth.routes";
+import issuesRouter from "./modules/issues/issues.routes";
 import errorHandler from "./middleware/error.middleware";
 
 const app = express();
@@ -12,6 +13,7 @@ app.use((req, res) => {
 });
 
 app.use("/api/auth", authRouter);
+app.use("/api/issues", issuesRouter);
 
 // global error handler
 app.use(errorHandler);

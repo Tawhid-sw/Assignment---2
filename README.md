@@ -2,7 +2,7 @@
 
 A platform for software teams to report bugs, suggest features, and coordinate resolutions.
 
-**Live URL:** ``\*
+**Live URL:** `https://assignment-2-one-self.vercel.app/api/`*
 
 ---
 
@@ -17,14 +17,14 @@ A platform for software teams to report bugs, suggest features, and coordinate r
 
 ## Tech Stack
 
-Node.js (LTS) as Runtime
-TypeScript as Language
-Express.js for Web Framework
-PostgreSQL for Database
-pg (native) for Database Driver
-bcrypt for Password Hashing
-jsonwebtoken for Authentication
-http-status-codes for Status Codes
+- Node.js (LTS) as Runtime
+- TypeScript as Language
+- Express.js for Web Framework
+- PostgreSQL for Database
+- pg (native) for Database Driver
+- bcrypt for Password Hashing
+- jsonwebtoken for Authentication
+- http-status-codes for Status Codes
 
 ---
 
@@ -78,16 +78,16 @@ npm run dev
 
 ### Auth
 
-POST : `/api/auth/signup` Public Register a new user
-POST : `/api/auth/login` Public Login and get JWT token
+- POST : `/api/auth/signup` Public Register a new user
+- POST : `/api/auth/login` Public Login and get JWT token
 
 ### Issues
 
-GET : `/api/issues` Public Get all issues
-GET : `/api/issues/:id` Public Get a single issue
-POST : `/api/issues` Authenticated Create a new issue
-PATCH : `/api/issues/:id` Authenticated Update an issue
-DELETE : `/api/issues/:id` Maintainer only Delete an issue
+- GET : `/api/issues` Public Get all issues
+- GET : `/api/issues/:id` Public Get a single issue
+- POST : `/api/issues` Authenticated Create a new issue
+- PATCH : `/api/issues/:id` Authenticated Update an issue
+- DELETE : `/api/issues/:id` Maintainer only Delete an issue
 
 ---
 
@@ -95,21 +95,21 @@ DELETE : `/api/issues/:id` Maintainer only Delete an issue
 
 ### users table
 
-id SERIAL Primary key
-name VARCHAR(255) Required
-email VARCHAR(255) Unique, required
-password VARCHAR(255) Hashed, never returned
-role VARCHAR(20) `contributor` or `maintainer`, default `contributor`
-created_at TIMESTAMPTZ Auto-generated
-updated_at TIMESTAMPTZ Auto-refreshed
+- id SERIAL Primary key
+- name VARCHAR(255) Required
+- email VARCHAR(255) Unique, required
+- password VARCHAR(255) Hashed, never returned
+- role VARCHAR(20) `contributor` or `maintainer`, default `contributor`
+- created_at TIMESTAMPTZ Auto-generated
+- updated_at TIMESTAMPTZ Auto-refreshed
 
 ### issues table
 
-id SERIAL Primary key
-title VARCHAR(150) Required, max 150 chars
-description TEXT Required, min 20 chars
-type VARCHAR(30) `bug` or `feature_request`
-status VARCHAR(20) `open`, `in_progress`, `resolved`, default `open`
-reporter_id INTEGER References user id (app-level validation)
-created_at TIMESTAMPTZ Auto-generated
-updated_at TIMESTAMPTZ Auto-refreshed
+- id SERIAL Primary key
+- title VARCHAR(150) Required, max 150 chars
+- description TEXT Required, min 20 chars
+- type VARCHAR(30) `bug` or `feature_request`
+- status VARCHAR(20) `open`, `in_progress`, `resolved`, default `open`
+- reporter_id INTEGER References user id (app-level validation)
+- created_at TIMESTAMPTZ Auto-generated
+- updated_at TIMESTAMPTZ Auto-refreshed

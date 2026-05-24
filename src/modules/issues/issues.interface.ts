@@ -16,9 +16,3 @@ export interface issueFilterProps {
   type?: string;
   status?: string;
 }
-
-export interface issueReporterProps {
-  id: number;
-  name: string;
-  role: string;
-}
